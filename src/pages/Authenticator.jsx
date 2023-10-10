@@ -1,7 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Login from '../components/Login';
+import Register from '../components/Register';
 
 export default function Authenticator() {
   return (
-    <div>Authenticator</div>
-  )
+    <div className='auth'>
+      <Login/>
+      <Register/>
+    </div>
+  );
 }
