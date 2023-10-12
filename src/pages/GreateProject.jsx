@@ -15,7 +15,7 @@ export const CreateProject = () => {
     try {
       // Replace 'YOUR_API_KEY' with your OpenWeatherMap API key
       const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=YourCity&appid=YOUR_API_KEY`
+        `https://api.openweathermap.org/data/2.5/weather?q=Cincinnati&appid=fc5ca2460eb25be5708c1791e5823986`
       );
 
       // Update the weatherData state with the response data

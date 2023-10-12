@@ -41,7 +41,7 @@ export const CreateProject = () => {
     event.preventDefault();
     try {
       await axios.post(
-        "http://localhost:3001/projects",
+        "https://project-3-backend-dkjm.onrender.com/projects",
         { ...project },
         {
           headers: { authorization: cookies.access_token },
@@ -75,7 +75,7 @@ export const CreateProject = () => {
           onChange={handleChange}
         ></textarea>
         <label htmlFor="task">Task</label>
-        {project.task.map((task, index) => (
+        {project?.task?.map((task, index) => (
           <input
             key={index}
             type="text"

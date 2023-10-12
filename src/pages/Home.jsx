@@ -27,7 +27,9 @@ export const Home = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/projects");
+        const response = await axios.get(
+          "https://project-3-backend-dkjm.onrender.com/projects"
+        );
         setProjects(response.data);
       } catch (err) {
         console.log(err);
@@ -37,7 +39,7 @@ export const Home = () => {
     const fetchDoneProject = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3001/projects/doneprojects/ids/${userID}`
+          `https://project-3-backend-dkjm.onrender.com/projects/doneprojects/ids/${userID}`
         );
         setDoneProjects(response.data.doneProjects);
       } catch (err) {
@@ -54,17 +56,20 @@ export const Home = () => {
 
   const doneProject = async (projectID) => {
     try {
-      const response = await axios.put("http://localhost:3001/projects", {
-        projectID,
-        userID,
-      });
+      const response = await axios.put(
+        "https://project-3-backend-dkjm.onrender.com/projects",
+        {
+          projectID,
+          userID,
+        }
+      );
       setDoneProjects(response.data.doneProjects);
     } catch (err) {
       console.log(err);
     }
   };
 
-  const isProjectDone = (id) => doneProjects.includes(id);
+  const isProjectDone = (id) => doneProjects?.includes(id);
 
   return (
     <div>

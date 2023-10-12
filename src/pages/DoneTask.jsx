@@ -10,7 +10,7 @@ useEffect(() => {
   const fetchDoneProject = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3001/projects/doneprojects/${userID}`
+        `https://project-3-backend-dkjm.onrender.com/projects/doneprojects/${userID}`
       );
       setDoneProjects(response.data.doneProjects);
     } catch (err) {
@@ -24,7 +24,7 @@ return (
   <div>
     <h1>Saved projects</h1>
     <ul>
-      {doneProjects.map((project) => (
+      {doneProjects?.map((project) => (
         <li key={project._id}>
           <div>
             <h2>{project.name}</h2>
