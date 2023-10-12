@@ -102,7 +102,7 @@ export const CreateProject = () => {
           value={project.imgUrl}
           onChange={handleChange}
         />
-        <label htmlFor="worktime">Working time (minutes)</label>
+        <label htmlFor="worktime">Working time (hr)</label>
         <input
           type="number"
           id="worktime"
