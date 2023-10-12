@@ -46,11 +46,11 @@ body {
 /* Navbar styles */
 .navbar {
   height: 80px;
-  background-color: black;
+  background-color: rgba(34, 3, 14, 0.727);
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .navbar a {
@@ -159,27 +159,3 @@ button {
 button:hover {
   background-color: #0056b3;
 }
-
-/* Home.css */
-
-.weather-info {
-  background-color: #f5f5f5;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-top: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.weather-info h3 {
-  font-size: 18px;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.weather-info p {
-  margin: 5px 0;
-  font-size: 16px;
-}
-
-/* You can add more styles as needed */
