@@ -5,8 +5,25 @@ import axios from "axios";
 export const Home = () => {
   const [projects, setProjects] = useState([]);
   const [doneProjects, setDoneProjects] = useState([]);
+  const [weatherData, setWeatherData] = useState(null); // State for weather data
 
   const userID = useGetUserID();
+
+  // Function to fetch weather data
+  const fetchWeatherData = async () => {
+    try {
+      // Replace 'YOUR_API_KEY' with your OpenWeatherMap API key
+      const response = await axios.get(
+        `https://api.openweathermap.org/data/2.5/weather?q=Cincinnati&appid=fc5ca2460eb25be5708c1791e5823986
+        `
+      );
+
+      // Update the weatherData state with the response data
+      setWeatherData(response.data);
+    } catch (error) {
+      console.error("Error fetching weather data:", error);
+    }
+  };
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -31,6 +48,9 @@ export const Home = () => {
 
     fetchProjects();
     fetchDoneProject();
+
+    // Fetch weather data when the component mounts
+    fetchWeatherData();
   }, []);
 
   const doneProject = async (projectID) => {
@@ -65,11 +85,21 @@ export const Home = () => {
             <div className="description">
               <p>{project.description}</p>
             </div>
-            <img src={project.imageUrl} alt={project.name} />
-            <p>Working Time: {project.worktime} minutes</p>
+            <img src={project.imgUrl} alt={project.name} />
+            <p>Working Time: {project.worktime} hours</p>
           </li>
         ))}
       </ul>
+
+      {/* Display weather data */}
+      {weatherData && (
+        <div className="weather-info">
+          <h3>Weather Information</h3>
+          <p>City: {weatherData.name}</p>
+          <p>Temperature: {weatherData.main.temp}°C</p>
+          <p>Weather: {weatherData.weather[0].description}</p>
+        </div>
+      )}
     </div>
   );
 };
