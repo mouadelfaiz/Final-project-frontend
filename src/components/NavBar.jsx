@@ -17,7 +17,7 @@ export default function NavBar() {
     <div className='navbar'>
       <Link to="/">Home</Link>
       <Link to="/create-project">Create Project</Link>
-      <Link to="/projects">Projects</Link>
+      <Link to="/done-projects">Done Projects</Link>
       {!cookies.access_token ? (
         <Link to="/auth">Login/Register</Link>
       ) : (
